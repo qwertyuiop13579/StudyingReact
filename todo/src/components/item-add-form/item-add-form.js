@@ -13,8 +13,9 @@ export default class ItemAddForm extends React.Component {
     }
 
     onSubmit = (event) => {
-        this.props.AddItem(this.state.label);
         event.preventDefault();
+        if (!this.state.label) return;
+        this.props.AddItem(this.state.label);
         this.setState({ label: '' });
     }
 
