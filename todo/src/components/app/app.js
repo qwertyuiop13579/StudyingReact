@@ -4,6 +4,7 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter';
+import ItemAddForm from "../item-add-form/item-add-form";
 
 import './app.css';
 
@@ -17,9 +18,17 @@ export default class App extends React.Component {
         ]
     };
 
+    AddItem = (text) => {
+        this.setState(({ todoData }) => {
+            return {
+                todoData: [...todoData, { id: todoData.length + 1, label: text, important: false }]
+            }
+        });
+    }
+
     DeleteItem = (id) => {
-        this.setState((state) => {
-            return { todoData: state.todoData.filter((item) => item.id !== id) };
+        this.setState(({ todoData }) => {
+            return { todoData: todoData.filter((item) => item.id !== id) };
         });
     }
 
@@ -32,6 +41,7 @@ export default class App extends React.Component {
                     <ItemStatusFilter />
                 </div>
                 <TodoList items={this.state.todoData} onDeleted={this.DeleteItem} />
+                <ItemAddForm AddItem={this.AddItem} />
             </div>
         );
     }
