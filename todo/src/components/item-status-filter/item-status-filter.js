@@ -1,6 +1,6 @@
 import React from "react";
 
-import './ItemStatusFilter.css'
+import './item-status-filter.css'
 
 const ItemStatusFilter = () => {
     return (

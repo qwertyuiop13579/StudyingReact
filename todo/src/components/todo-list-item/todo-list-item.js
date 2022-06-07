@@ -1,6 +1,6 @@
 import React from "react";
 
-import './TodoListItem.css';
+import './todo-list-item.css';
 
 const TodoListItem = ({ label, important = false }) => {
     const spanStyle = {
