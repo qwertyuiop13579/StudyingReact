@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import SwapiService from './services/swapi-service.js';
 
-const App = ()=>{
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
         <p>
-         StarDB
+          StarDB
         </p>
       </header>
     </div>
@@ -19,4 +20,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
