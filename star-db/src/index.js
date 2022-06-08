@@ -2,17 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import SwapiService from './services/swapi-service.js';
 
-const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          StarDB
-        </p>
-      </header>
-    </div>
-  );
-}
+import App from './components/app';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
