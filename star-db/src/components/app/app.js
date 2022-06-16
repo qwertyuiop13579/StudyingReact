@@ -15,7 +15,6 @@ class App extends React.Component {
 
     onPersonSelected = (id) => {
         this.setState({ selectedPersonId: id });
-        console.log('click', id);
     }
 
     render() {
