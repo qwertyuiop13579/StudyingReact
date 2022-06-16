@@ -9,6 +9,15 @@ import PersonDetails from '../person-details'
 
 class App extends React.Component {
 
+    state = {
+        selectedPersonId: null,
+    }
+
+    onPersonSelected = (id) => {
+        this.setState({ selectedPersonId: id });
+        console.log('click', id);
+    }
+
     render() {
         return (
             <div className="stardb-app">
@@ -17,10 +26,10 @@ class App extends React.Component {
 
                 <div className="row mb2">
                     <div className="col-md-6">
-                        <ItemList />
+                        <ItemList onItemSelected={this.onPersonSelected} />
                     </div>
                     <div className="col-md-6">
-                        <PersonDetails />
+                        <PersonDetails personId={this.state.selectedPersonId} />
                     </div>
                 </div>
             </div>
