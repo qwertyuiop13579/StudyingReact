@@ -1,6 +1,7 @@
 class SwapiService {
     swapiURL = 'https://swapi.dev/api';
-    async getResource(url) {
+    
+    getResource = async (url) => {
         const response = await fetch(`${this.swapiURL}${url}`);
         if (!response.ok) {
             throw new Error(`Could not fetch ${url}, received ${response.status}.`);
@@ -9,37 +10,37 @@ class SwapiService {
         return body;
     }
 
-    async getAllPeople() {
+    getAllPeople = async () => {
         const res = await this.getResource(`/people/`);
         return res.results.map(this._transformPerson);
     }
 
-    async getPerson(id) {
+    getPerson = async (id) => {
         const person = await this.getResource(`/people/${id}/`);
         return this._transformPerson(person);
     }
 
-    async getAllPlanets() {
+    getAllPlanets = async () => {
         const res = await this.getResource(`/planets/`);
         return res.results.map(this._transformPlanet);
     }
 
-    async getPlanet(id) {
+    getPlanet = async (id) => {
         const planet = await this.getResource(`/planets/${id}/`);
         return this._transformPlanet(planet);
     }
 
-    async getAllStarships() {
+    getAllStarships = async () => {
         const res = await this.getResource(`/starships/`);
         return res.results.map(this._transformStarship);
     }
 
-    async getStarship(id) {
+    getStarship = async (id) => {
         const starship = await this.getResource(`/starships/${id}/`);
         return this._transformStarship(starship);
     }
 
-    _extractId(text) {
+    _extractId = (text) => {
         const idRegExp = /\/(\d+)\/$/;
         const id = text.match(idRegExp)[1];
         return id;

@@ -10,36 +10,40 @@ class ItemList extends React.Component {
     swapeService = new SwapiService();
 
     state = {
-        peopleList: null,
+        ItemList: null,
     }
+
     componentDidMount() {
-        this.swapeService
-            .getAllPeople()
-            .then(peopleList => {
-                this.setState({
-                    peopleList
-                });
-            });
+
+        const { getData } = this.props;
+        getData().then(ItemList => {
+            this.setState({ ItemList });
+        });
 
     }
 
     renderItems(arr) {
-        return arr.map(({ id, name }) => {
+        return arr.map((item) => {
+            const { id } = item;
+            const label = this.props.renderItem(item);
             return (
-                <li className="list-group-item" key={id} onClick={() => this.props.onItemSelected(id)}>{name}</li>
+                <li className="list-group-item"
+                    key={id}
+                    onClick={() => this.props.onItemSelected(id)}>
+                    {label}</li>
             );
         })
     }
 
 
     render() {
-        const { peopleList } = this.state;
+        const { ItemList } = this.state;
 
-        if (!peopleList) {
+        if (!ItemList) {
             return <Spinner />;
         }
 
-        const items = this.renderItems(peopleList);
+        const items = this.renderItems(ItemList);
 
         return (
             <ul className="item-list list-group">
