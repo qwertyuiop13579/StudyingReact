@@ -31,7 +31,7 @@ class App extends React.Component {
                 <RandomPlanet />
                 <PeoplePage />
 
-                <div className="row mb2">
+                {/* <div className="row mb2">
                     <div className="col-md-6">
                         <ItemList onItemSelected={this.onPersonSelected}
                             getData={this.swapiService.getAllPlanets}
@@ -52,7 +52,7 @@ class App extends React.Component {
                     <div className="col-md-6">
                         <PersonDetails personId={this.state.selectedPersonId} />
                     </div>
-                </div>
+                </div> */}
 
             </div>
 
