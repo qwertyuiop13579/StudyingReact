@@ -1,5 +1,7 @@
 import React from "react";
+
 import SwapiService from "../../services/swapi-service";
+import Spinner from "../spinner/spinner";
 
 import './person-details.css';
 
@@ -9,6 +11,7 @@ class PersonDetails extends React.Component {
 
     state = {
         person: null,
+        isLoading: true,
     }
 
     componentDidMount() {
@@ -22,12 +25,16 @@ class PersonDetails extends React.Component {
     }
 
     updatePerson = () => {
+        this.setState({ isLoading: true });
         const { personId } = this.props;
         if (!personId) return;
         this.swapiService
             .getPerson(personId)
             .then(person => {
-                this.setState({ person });
+                this.setState({
+                    person,
+                    isLoading: false
+                });
             });
     }
 
@@ -35,7 +42,10 @@ class PersonDetails extends React.Component {
         if (!this.state.person) {
             return <span>Select a person from list.</span>
         }
-        const { person: { id, name, gender, birthYear, eyeColor } } = this.state;
+
+        const { person: { id, name, gender, birthYear, eyeColor }, isLoading } = this.state;
+
+        if (isLoading) return <Spinner />;
 
         return (
             <div className="person-details card">

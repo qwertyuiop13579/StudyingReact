@@ -31,10 +31,6 @@ class ItemList extends React.Component {
         })
     }
 
-    onItemSelected = () => {
-        console.log('Click');
-    }
-
 
     render() {
         const { peopleList } = this.state;
