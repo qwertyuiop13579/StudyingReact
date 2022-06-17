@@ -8,7 +8,7 @@ import ErrorIndicator from "../error-indicator";
 import PeoplePage from "../people-page/people-page";
 import SwapiService from "../../services/swapi-service";
 import { PersonList, PlanetList, StarshipList } from "../sw-components/item-lists";
-import { PersonDetails, PlanetDetails, StarshipDetails } from "../sw-components/details";
+import { PersonDetails, PlanetDetails, StarshipDetails } from "../sw-components";
 import { SwapiServiceProvider } from "../swapi-service-context";
 
 class App extends React.Component {
