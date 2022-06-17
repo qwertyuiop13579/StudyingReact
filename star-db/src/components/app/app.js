@@ -35,9 +35,9 @@ class App extends React.Component {
                 <PlanetDetails itemId={10}></PlanetDetails>
                 <StarshipDetails itemId={5}></StarshipDetails>
 
-                <PersonList>{(i) => `${i.name} (${i.gender}, ${i.birthYear})`}</PersonList>
-                <PlanetList>{(i) => `${i.name} (${i.population}, ${i.diameter})`}</PlanetList>
-                <StarshipList>{(i) => `${i.name} (${i.model}, ${i.length})`}</StarshipList>
+                <PersonList />
+                <PlanetList />
+                <StarshipList />
 
             </div>
 
