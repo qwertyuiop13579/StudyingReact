@@ -5,10 +5,8 @@ import './app.css';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorIndicator from "../error-indicator";
-import PeoplePage from "../people-page/people-page";
+import { PeoplePage, PlanetsPage, StarshipsPage } from "../pages";
 import SwapiService from "../../services/swapi-service";
-import { PersonList, PlanetList, StarshipList } from "../sw-components/item-lists";
-import { PersonDetails, PlanetDetails, StarshipDetails } from "../sw-components";
 import { SwapiServiceProvider } from "../swapi-service-context";
 
 class App extends React.Component {
@@ -42,14 +40,8 @@ class App extends React.Component {
                     <Header onChangeService={this.onChangeService} />
                     <RandomPlanet />
                     <PeoplePage />
-
-                    <PersonDetails itemId={10}></PersonDetails>
-                    <PlanetDetails itemId={10}></PlanetDetails>
-                    <StarshipDetails itemId={5}></StarshipDetails>
-
-                    <PersonList />
-                    <PlanetList />
-                    <StarshipList />
+                    <PlanetsPage />
+                    <StarshipsPage />
                 </div>
             </SwapiServiceProvider>
         );

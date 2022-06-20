@@ -52,7 +52,7 @@ class ItemDetails extends React.Component {
 
         return (
             <div className="item-details card">
-                <img className="item-image" src={image} alt="person" />
+                <img className="item-image" src={image} alt="item" />
 
                 <div className="card-body">
                     <h4>{item.name}</h4>
