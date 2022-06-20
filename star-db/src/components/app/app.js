@@ -13,23 +13,33 @@ import { SwapiServiceProvider } from "../swapi-service-context";
 
 class App extends React.Component {
 
-    swapiService = new SwapiService();
-
     state = {
         hasError: false,
+        swapiService: new SwapiService(),
     }
 
     componentDidCatch() {
         this.setState({ hasError: true });
     }
 
+    onChangeService = () => {
+        this.setState(({ swapiService }) => {
+            const Service = swapiService instanceof SwapiService ? SwapiService : SwapiService;
+            return {
+                swapiService: new Service()
+            };
+        });
+        console.log('Change Service');
+    }
+
+
     render() {
         if (this.state.hasError) return <ErrorIndicator />;
 
         return (
-            <SwapiServiceProvider value={this.swapiService}>
+            <SwapiServiceProvider value={this.state.swapiService}>
                 <div className="stardb-app">
-                    <Header />
+                    <Header onChangeService={this.onChangeService} />
                     <RandomPlanet />
                     <PeoplePage />
 

@@ -20,7 +20,7 @@ class SwapiService {
         return this._transformPerson(person);
     }
 
-    getPersonImage =({id})=>{
+    getPersonImage = ({ id }) => {
         return `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`
     }
 
@@ -34,7 +34,7 @@ class SwapiService {
         return this._transformPlanet(planet);
     }
 
-    getPlanetImage =({id})=>{
+    getPlanetImage = ({ id }) => {
         return `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`
     }
 
@@ -48,7 +48,7 @@ class SwapiService {
         return this._transformStarship(starship);
     }
 
-    getStarshipImage =({id})=>{
+    getStarshipImage = ({ id }) => {
         return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
     }
 
