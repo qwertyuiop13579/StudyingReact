@@ -1,24 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import HookSwitcher from './use-state';
+import ContextProvider from './use-context';
 
 function App() {
   return (
     <div>
-      <HoolSwitcher></HoolSwitcher>
-    </div>
-  );
-}
-
-const HoolSwitcher = () => {
-
-  const [color, setColor] = useState('white');
-  const [fontSize, setFontSize] = useState(14);
-
-  return (
-    <div style={{ padding: '10px', backgroundColor: color, fontSize: `${fontSize}px` }}>
-      <p>Hello world!</p>
-      <button onClick={() => setColor('white')}>White</button>
-      <button onClick={() => setColor('black')}>Black</button>
-      <button onClick={() => setFontSize((s) => s + 1)}>+size</button>
+      <HookSwitcher></HookSwitcher>
+      <ContextProvider />
     </div>
   );
 }
