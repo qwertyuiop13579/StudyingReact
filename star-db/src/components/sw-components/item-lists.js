@@ -26,11 +26,20 @@ const renderPerson = (i) => <span>{i.name} ({i.gender}, {i.birthYear})</span>;
 const renderPlanet = (i) => <span>{i.name} (${i.population}, ${i.diameter})</span>;
 const renderStarchip = (i) => <span>{i.name} (${i.model}, ${i.length})</span>;
 
-const PersonList = withSwapiService(withData(withChild(ItemList, renderPerson)), mapPersonMethodsToProps);
+const PersonList = withSwapiService(mapPersonMethodsToProps)(
+    withData(
+        withChild(renderPerson)(
+            ItemList)));
 
-const PlanetList = withSwapiService(withData(withChild(ItemList, renderPlanet)), mapPlanetMethodsToProps);
+const PlanetList = withSwapiService(mapPlanetMethodsToProps)(
+    withData(
+        withChild(renderPlanet)(
+            ItemList)));
 
-const StarshipList = withSwapiService(withData(withChild(ItemList, renderStarchip)), mapStarshipMethodsToProps);
+const StarshipList = withSwapiService(mapStarshipMethodsToProps)(
+    withData(
+        withChild(renderStarchip)(
+            ItemList)));
 
 export {
     PersonList,
