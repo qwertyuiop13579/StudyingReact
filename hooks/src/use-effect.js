@@ -23,7 +23,7 @@ const UseEffectComp = () => {
     );
 }
 
-const PlanetInfo = ({ id }) => {
+const usePlanetinfo = (id) => {
     const [name, setName] = useState('');
     useEffect(() => {
         let cancelled = false;
@@ -32,6 +32,11 @@ const PlanetInfo = ({ id }) => {
             .then(data => !cancelled && setName(data.name));
         return () => cancelled = true;
     }, [id]);
+    return name
+}
+
+const PlanetInfo = ({ id }) => {
+    const name = usePlanetinfo(id);
 
     return (
         <div>
