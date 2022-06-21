@@ -6,7 +6,7 @@ import './app.css';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorIndicator from "../error-indicator";
-import { PeoplePage, PlanetsPage, StarshipsPage } from "../pages";
+import { PeoplePage, PlanetsPage, StarshipsPage, SecretPage, LoginPage } from "../pages";
 import SwapiService from "../../services/swapi-service";
 import { SwapiServiceProvider } from "../swapi-service-context";
 import ErrorBoundary from "../error-boundary";
@@ -18,10 +18,15 @@ class App extends React.Component {
     state = {
         hasError: false,
         swapiService: new SwapiService(),
+        isLoggedIn: false,
     }
 
     componentDidCatch() {
         this.setState({ hasError: true });
+    }
+
+    onLogin = () => {
+        this.setState({ isLoggedIn: true });
     }
 
     onChangeService = () => {
@@ -36,10 +41,9 @@ class App extends React.Component {
 
 
     render() {
+        const { hasError, isLoggedIn } = this.state;
 
-        if (this.state.hasError) return <ErrorIndicator />;
-
-
+        if (hasError) return <ErrorIndicator />;
 
         return (
             <ErrorBoundary>
@@ -55,6 +59,8 @@ class App extends React.Component {
                                 <Route path="/planets" element={<PlanetsPage />}></Route>
                                 <Route path="/starships" element={<StarshipsPage />}></Route>
                                 <Route path="/starships/:id" element={<StarshipDetails />}></Route>
+                                <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn} onLogin={this.onLogin} />}></Route>
+                                <Route path="/secret" element={<SecretPage isLoggedIn={isLoggedIn} />}></Route>
                             </Routes>
                         </div>
                     </Router>
