@@ -61,6 +61,7 @@ class App extends React.Component {
                                 <Route path="/starships/:id" element={<StarshipDetails />}></Route>
                                 <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn} onLogin={this.onLogin} />}></Route>
                                 <Route path="/secret" element={<SecretPage isLoggedIn={isLoggedIn} />}></Route>
+                                <Route path="/*" element={<h2>404 Page</h2>}></Route>
                             </Routes>
                         </div>
                     </Router>
