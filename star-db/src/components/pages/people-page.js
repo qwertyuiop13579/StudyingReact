@@ -1,30 +1,29 @@
 import React from "react";
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 import Row from "../row";
 import ErrorBoundary from "../error-boundary";
 import { PersonList, PersonDetails } from "../sw-components";
 
-class PeoplePage extends React.Component {
+const PeoplePage = () => {
+    const params = useParams();
+    const navigate = useNavigate();
 
-    state = {
-        selectedItemId: null,
+    const onItemSelected = (id) => {
+        const newPath = `/people/${id}`;
+        navigate(newPath);
     }
 
-    onItemSelected = (id) => {
-        this.setState({ selectedItemId: id });
-    }
+    const PersonListLeft = <PersonList onItemSelected={onItemSelected}></PersonList>;
+    const PersonDetailsRight = params.id ? <PersonDetails itemId={params.id}></PersonDetails> : null;
 
-    render() {
+    return (
+        <ErrorBoundary>
+            <Row left={PersonListLeft} right={PersonDetailsRight} />
+        </ErrorBoundary>
+    );
 
-        const PersonListLeft = <PersonList onItemSelected={this.onItemSelected}></PersonList>;
-        const PersonDetailsRight = <PersonDetails itemId={this.state.selectedItemId}></PersonDetails>;
-
-        return (
-            <ErrorBoundary>
-                <Row left={PersonListLeft} right={PersonDetailsRight} />
-            </ErrorBoundary>
-        );
-    }
 }
 
 export default PeoplePage;

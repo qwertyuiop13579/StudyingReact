@@ -51,6 +51,7 @@ class App extends React.Component {
                             <Routes>
                                 <Route path="/" element={<h2>Welcome to StarDB!</h2>}></Route>
                                 <Route path="/people" element={<PeoplePage />}></Route>
+                                <Route path="/people/:id" element={<PeoplePage />}></Route>
                                 <Route path="/planets" element={<PlanetsPage />}></Route>
                                 <Route path="/starships" element={<StarshipsPage />}></Route>
                                 <Route path="/starships/:id" element={<StarshipDetails />}></Route>
