@@ -24,7 +24,7 @@ const mapStarshipMethodsToProps = (swapiService) => {
 
 const renderPerson = (i) => <span>{i.name} ({i.gender}, {i.birthYear})</span>;
 const renderPlanet = (i) => <span>{i.name} (${i.population}, ${i.diameter})</span>;
-const renderStarchip = (i) => <span>{i.name} (${i.model}, ${i.length})</span>;
+const renderStarship = (i) => <span>{i.name} (${i.model}, ${i.length})</span>;
 
 const PersonList = compose(
     withSwapiService(mapPersonMethodsToProps),
@@ -41,7 +41,7 @@ const PlanetList = compose(
 const StarshipList = compose(
     withSwapiService(mapStarshipMethodsToProps),
     withData,
-    withChild(renderStarchip))
+    withChild(renderStarship))
     (ItemList);
 
 export {
