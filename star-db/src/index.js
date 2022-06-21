@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import SwapiService from './services/swapi-service.js';
 
 import App from './components/app';
 
