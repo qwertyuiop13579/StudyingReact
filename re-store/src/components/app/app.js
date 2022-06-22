@@ -1,10 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { HomePage, CartPage } from '../pages';
+import Header from '../header';
 
 function App() {
     return (
-        <div className="app">
+        <main role="main" className="app">
+            <Header numItems={5} total={100}></Header>
             <Routes>
                 <Route path="/" element={<HomePage></HomePage>}></Route>
                 <Route path="/home" element={<HomePage></HomePage>}></Route>
@@ -12,7 +14,7 @@ function App() {
                 <Route path="/*" element={<h2>Page not found</h2>}></Route>
             </Routes>
 
-        </div>
+        </main>
     );
 }
 

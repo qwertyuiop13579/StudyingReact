@@ -1,0 +1,27 @@
+.header {
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .logo {
+  font-size: 30px;
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+.header .shopping-cart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  padding: 0 10px;
+}
+
+.header .cart-icon {
+  font-size: 30px;
+}
