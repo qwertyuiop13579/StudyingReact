@@ -1,6 +1,9 @@
 import React from 'react';
+import { withBookstoreService } from '../hoc';
 
-function App() {
+function App({ bookstoreService }) {
+
+    console.log(bookstoreService.getBooks());
     return (
         <div className="app">
             Hello world!
@@ -8,4 +11,4 @@ function App() {
     );
 }
 
-export default App;
+export default withBookstoreService()(App);
