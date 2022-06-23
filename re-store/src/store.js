@@ -14,13 +14,7 @@ const stringMiddleware = () => (dispatch) => (action) => {
     return dispatch(action);
 }
 
-const store = configureStore({ reducer: reducer, enhancers: [], middleware: [ThunkMiddleware, stringMiddleware, logMiddleware] });
-
-const myAction = (dispatch) => {
-    setTimeout(() => {
-        dispatch('Delayed Action');
-    }, 2000)
-}
+const store = configureStore({ reducer: reducer, middleware: [ThunkMiddleware, stringMiddleware, logMiddleware] });
 
 const myActionCreator = (timeout) => (dispatch) => {
     setTimeout(() => {
