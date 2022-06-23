@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { bindActionCreators } from '@reduxjs/toolkit';
 
 import './book-list.css';
 
@@ -49,10 +50,10 @@ const mapStateToProps = ({ bookList: { books, loading, error } }) => {
 }
 
 const mapDispatchToProps = (dispatch, { bookstoreService }) => {
-    return {
-        fetchBooks: fetchBooks(bookstoreService, dispatch),
-        onAddedToCart: (id) => dispatch(bookAddedToCart(id)),
-    }
+    return bindActionCreators({
+        fetchBooks: fetchBooks(bookstoreService),
+        onAddedToCart: bookAddedToCart,
+    }, dispatch)
 }
 
 
