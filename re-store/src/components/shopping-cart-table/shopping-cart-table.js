@@ -3,6 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux';
 
+import {
+    bookAddedToCart,
+    bookDecreasedInCart,
+    bookDeletedFromCart
+} from '../../actions';
+
 import './shopping-cart-table.css';
 
 const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) => {
@@ -63,9 +69,9 @@ const mapStateToProps = ({ cartItems, orderTotal }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onIncrease: () => { },
-        onDecrease: () => { },
-        onDelete: () => { },
+        onIncrease: (id) => dispatch(bookAddedToCart(id)),
+        onDecrease: (id) => dispatch(bookDecreasedInCart(id)),
+        onDelete: (id) => dispatch(bookDeletedFromCart(id)),
     }
 }
 
