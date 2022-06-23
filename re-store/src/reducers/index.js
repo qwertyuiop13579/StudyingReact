@@ -1,7 +1,12 @@
 const initialState = {
     books: [],
     loading: true,
-    error: null
+    error: null,
+    cartItems: [
+        { id: 1, title: 'titel1', count: 12, total: 100 },
+        { id: 2, title: 'titel2', count: 12, total: 100 }
+    ],
+    orderTotal: 199,
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,12 +20,14 @@ const reducer = (state = initialState, action) => {
             };
         case 'FETCH_BOOKS_SUCCESS':
             return {
+                ...state,
                 books: action.payload,
                 loading: false,
                 error: null,
             };
         case 'FETCH_BOOKS_FAILURE':
             return {
+                ...state,
                 books: [],
                 loading: false,
                 error: action.payload
