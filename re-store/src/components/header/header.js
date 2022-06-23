@@ -1,17 +1,18 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import './header.css';
 
 const Header = ({ numItems, total }) => {
     return (
         <header className="header">
-            <a className="logo text-dark" href="/">ReStore</a>
-            <a href="/cart" className="shopping-cart">
+            <Link to="/" className="logo text-dark">ReStore</Link>
+            <Link to="/cart" className="shopping-cart">
                 {numItems} items (${total})
                 <FontAwesomeIcon icon={faShoppingCart} className="cart-icon"></FontAwesomeIcon>
-            </a>
+            </Link>
         </header>
     );
 }
