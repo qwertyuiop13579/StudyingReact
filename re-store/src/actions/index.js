@@ -1,3 +1,9 @@
+const booksRequeted = () => {
+    return {
+        type: 'BOOKS_REQUESTED',
+    }
+};
+
 const booksLoaded = (newBooks) => {
     return {
         type: 'BOOKS_LOADED',
@@ -5,6 +11,15 @@ const booksLoaded = (newBooks) => {
     }
 };
 
+const booksError = (error) => {
+    return {
+        type: 'BOOKS_ERROR',
+        payload: error,
+    }
+};
+
 export {
-    booksLoaded
+    booksRequeted,
+    booksLoaded,
+    booksError
 };
