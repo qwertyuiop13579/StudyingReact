@@ -1,9 +1,19 @@
 const path = require('path');
+var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     entry: './src/index.js',
     module: {
         rules: [
+
+            // Babel for JS files
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'babel-loader'
+                }]
+            },
 
             // Images
             {
@@ -28,6 +38,8 @@ module.exports = {
                     }
                 }]
             },
+
+            // CSS and Style loaders
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']

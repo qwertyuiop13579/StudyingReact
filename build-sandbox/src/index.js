@@ -1,12 +1,11 @@
-import Calc from "./calc";
-import Log from "./log";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-import img from './death-star.png';
+import './css/main.css';
 
-const calc = new Calc();
-const log = new Log();
-log.log(calc.add(4, 5));
-
-const imgEl = document.createElement('img');
-imgEl.src = img;
-document.body.appendChild(imgEl);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+        <h2>Hello world!</h2>
+    </React.StrictMode>
+);
