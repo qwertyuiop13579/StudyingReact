@@ -1,7 +1,13 @@
 {
-    "plugins":[
-        "@babel/plugin-transform-template-literals",
-        "@babel/plugin-transform-classes",
-        "@babel/plugin-transform-block-scoping"
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "edge": "18",
+          "chrome": "74"
+        }
+      }
     ]
+  ]
 }
