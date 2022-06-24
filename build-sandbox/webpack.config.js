@@ -1,5 +1,5 @@
 const path = require('path');
-var nodeExternals = require('webpack-node-externals');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -51,5 +51,8 @@ module.exports = {
         filename: 'index_bundle.js'
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: 'public/index.html'
+        })
     ]
 }
