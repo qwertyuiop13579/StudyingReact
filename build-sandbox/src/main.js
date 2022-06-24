@@ -1,8 +1,9 @@
-class App {
-    run = async (name = "World") => {
-        console.log(`Hello, ${name}`);
-    }
-}
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-const app = new App();
-app.run().then(() => console.log('Done')).catch(() => console.log('Error'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+        <h2>Hello world!</h2>
+    </React.StrictMode>
+);

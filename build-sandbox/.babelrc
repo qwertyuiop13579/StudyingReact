@@ -8,6 +8,7 @@
         "debug": true,
         "modules": false
       }
-    ]
+    ],
+    ["@babel/preset-react"]
   ]
 }
