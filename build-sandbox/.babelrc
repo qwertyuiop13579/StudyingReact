@@ -3,10 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "edge": "18",
-          "chrome": "74"
-        }
+        "debug": true
       }
     ]
   ]
